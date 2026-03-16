@@ -11,13 +11,49 @@ words = [
     "lista",
 ]
 
-word = random.choice(words)
+categorias = {
+    "categoria_1": [
+        "python",
+        "programa",
+        "variable",
+        "funcion"
+    ],
+    "categoria_2": [
+        "bucle",
+        "cadena",
+        "entero",
+        "lista"
+    ]
+}
+
+print("¡Bienvenido al Ahorcado!")
+print()
+
+print ("Categorias disponibles: ")
+for i in categorias:
+    print (f"  {i}")
+print ()
+
+
+categoria_elegida_con_exito = False
+
+while not categoria_elegida_con_exito:
+    categoria_elegida = input ("Ingrese la categoria que guste: ")
+    for i in categorias:
+        if categoria_elegida == i:
+            categoria_elegida_con_exito = True
+            break
+    if not categoria_elegida_con_exito:
+        print ("Entrada invalida.")
+
+
+
+word = random.choice(categorias[categoria_elegida])
 guessed = []
 attempts = 6
 points = 6
 
-print("¡Bienvenido al Ahorcado!")
-print()
+print ()
 
 while attempts > 0:
     # Mostrar progreso: letras adivinadas y guiones para las que faltan
