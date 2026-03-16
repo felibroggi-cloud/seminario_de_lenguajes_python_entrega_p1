@@ -1,16 +1,5 @@
 import random
 
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
-]
-
 categorias = {
     "categoria_1": [
         "python",
@@ -35,8 +24,8 @@ for i in categorias:
 print ()
 
 
+# Comprobacion de si la categoria elegida coincide con las categorias existentes (si no, reintentar)
 categoria_elegida_con_exito = False
-
 while not categoria_elegida_con_exito:
     categoria_elegida = input ("Ingrese la categoria que guste: ")
     for i in categorias:
@@ -51,7 +40,6 @@ while not categoria_elegida_con_exito:
 word = random.choice(categorias[categoria_elegida])
 guessed = []
 attempts = 6
-points = 6
 
 print ()
 
@@ -67,7 +55,7 @@ while attempts > 0:
 
     # Verificar si el jugador ya adivinó la palabra completa
     if "_" not in progress:
-        print(f"¡Ganaste! Puntuacion: {points}.")
+        print(f"¡Ganaste! Puntuacion: {attempts}.")
         break
 
     print(f"Intentos restantes: {attempts}")
@@ -84,11 +72,10 @@ while attempts > 0:
     else:
         guessed.append(letter)
         attempts -= 1
-        points -= 1
         print("Esa letra no está en la palabra.")
         
     print()
 
 else:
     points = 0
-    print(f"¡Perdiste! La palabra era: '{word}'. Puntuacion: {points}.")
+    print(f"¡Perdiste! La palabra era: '{word}'. Puntuacion: {attempts}.")
