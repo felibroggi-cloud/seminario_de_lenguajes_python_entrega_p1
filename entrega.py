@@ -94,4 +94,6 @@ for word in words:
                 break
     else:
         print ("Jugaste con todas las palabras de la categoria!")
+
+
 enter = input ("Programa finalizado. Presione enter para cerrar.")
